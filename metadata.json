@@ -1,0 +1,8 @@
+{
+  "name": " Nossa História de Amor (Braian e Stefani)",
+  "description": "Um presente especial de Dia dos Namorados com nossa linha do tempo, galeria de memórias e muito amor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

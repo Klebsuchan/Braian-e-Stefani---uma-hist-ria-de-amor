@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Georgia", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-romantic-50: #fff1f2;
+  --color-romantic-100: #ffe4e6;
+  --color-romantic-200: #fecdd3;
+  --color-romantic-300: #fda4af;
+  --color-romantic-400: #fb7185;
+  --color-romantic-500: #f43f5e;
+  --color-romantic-600: #e11d48;
+  --color-romantic-700: #be123c;
+  --color-romantic-800: #9f1239;
+  --color-romantic-900: #881337;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #110204;
+  color: white;
+  font-family: var(--font-serif);
+}
+
+@layer utilities {
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+  }
+}
