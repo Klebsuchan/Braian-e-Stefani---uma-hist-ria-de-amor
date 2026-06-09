@@ -5,7 +5,7 @@ export const CONFIG = {
   },
   // Data em que começaram a namorar (Ano, Mês - 1, Dia, Hora, Minuto)
   // Exemplo: 12 de Junho de 2021 às 20:00
-  startDate: new Date(2026, 2, 15, 20, 0, 0),
+  startDate: new Date(2026, 2, 18, 20, 0, 0),
   hero: {
     mainQuote: "Onde quer que você esteja, é lá que eu quero estar.",
     mainPhoto: "/images/fotocapahero.JPG", 
@@ -122,7 +122,20 @@ A vida nos levou por alguns caminhos diferentes por um tempinho, as voltas acont
     "/images/foto7.JPG",
     "/images/foto8.jpeg",
     "/images/foto9.jpeg",
-    "/images/foto10.JPG"
+    "/images/foto10.JPG",
+    "/IMG_3433.jpeg",
+    "/IMG_3532.jpeg",
+    "/704A1FFD-9540-48DC-9430-1CA32CB847FE.jpeg",
+    "/IMG_3619.jpeg",
+    "/IMG_3637.jpeg",
+    "/IMG_3591.jpeg",
+    "/IMG_3634.jpeg",
+    "/3580B453-A5D6-4269-825F-8A199A97F5A6.jpeg",
+    "/D2FDF221-762C-4437-A53B-0B539B556A75.jpeg",
+    "/F92130E6-42CB-4A61-BC82-2589C59E8150.jpeg",
+    "/52AB3357-9824-4AA1-8E74-EDF8DF7671BE.jpeg",
+    "/2E6E7AE5-DF8B-4D3C-B025-48C104F16760.jpeg",
+    "/CB25EC2B-48EB-482A-A034-C421E667048D.jpeg"
   ]
 };
 
