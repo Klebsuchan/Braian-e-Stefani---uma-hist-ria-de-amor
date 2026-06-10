@@ -141,6 +141,7 @@ export function Gallery({ photos }: GalleryProps) {
                      className="w-full h-full object-cover object-[center_30%] transform hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
                      draggable={false}
                      loading="lazy"
+                     decoding="async"
                    />
                    <div className="absolute inset-0 border-2 border-transparent hover:border-pink-500/20 rounded-3xl transition-colors duration-500 pointer-events-none" />
                 </div>
