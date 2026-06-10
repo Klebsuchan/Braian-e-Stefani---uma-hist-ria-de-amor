@@ -25,6 +25,7 @@ export function Hero({ onStart, heroConfig, couple }: HeroProps) {
             <motion.img
               src={heroConfig.mainPhoto}
               alt="Nós"
+              fetchPriority="high"
               className="w-full h-full object-cover object-[center_25%] scale-105"
               animate={{ scale: [1.05, 1] }}
               transition={{ duration: 10, ease: "easeOut" }}

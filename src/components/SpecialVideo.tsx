@@ -18,6 +18,7 @@ export function SpecialVideo() {
             className="w-full h-full object-cover object-center"
             controls
             playsInline
+            preload="none"
           >
             <source src="/videos/gato-de-botas.mp4" type="video/mp4" />
             Seu navegador não suporta a tag de vídeo.

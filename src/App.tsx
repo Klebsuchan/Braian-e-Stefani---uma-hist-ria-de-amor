@@ -1,26 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { CONFIG } from "./config";
 import { Hero } from "./components/Hero";
 import { Counter } from "./components/Counter";
-import { Gallery } from "./components/Gallery";
-import { SpecialVideo } from "./components/SpecialVideo";
-import { Message } from "./components/Message";
-import { Footer } from "./components/Footer";
-import { AudioPlayer, type AudioPlayerRef } from "./components/AudioPlayer";
-import { Reasons } from "./components/Reasons";
 import { FloatingHearts } from "./components/FloatingHearts";
-import { Future } from "./components/Future";
-import { Timeline } from "./components/Timeline";
-import { LoveLetters } from "./components/LoveLetters";
-import { LoveCoupons } from "./components/LoveCoupons";
-import { Quiz } from "./components/Quiz";
-import { DateRandomizer } from "./components/DateRandomizer";
-import { DateGenerator } from "./components/DateGenerator";
-import { LoveMeter } from "./components/LoveMeter";
-import { LoveJar } from "./components/LoveJar";
+import { AudioPlayer, type AudioPlayerRef } from "./components/AudioPlayer";
 
-import { PinkyPromises } from "./components/PinkyPromises";
-import { StarryCanvas } from "./components/StarryCanvas";
+// Lazy load below-the-fold components
+const Timeline = lazy(() => import("./components/Timeline").then(module => ({ default: module.Timeline })));
+const Reasons = lazy(() => import("./components/Reasons").then(module => ({ default: module.Reasons })));
+const LoveLetters = lazy(() => import("./components/LoveLetters").then(module => ({ default: module.LoveLetters })));
+const PinkyPromises = lazy(() => import("./components/PinkyPromises").then(module => ({ default: module.PinkyPromises })));
+const LoveCoupons = lazy(() => import("./components/LoveCoupons").then(module => ({ default: module.LoveCoupons })));
+const DateRandomizer = lazy(() => import("./components/DateRandomizer").then(module => ({ default: module.DateRandomizer })));
+const DateGenerator = lazy(() => import("./components/DateGenerator").then(module => ({ default: module.DateGenerator })));
+const LoveJar = lazy(() => import("./components/LoveJar").then(module => ({ default: module.LoveJar })));
+const Gallery = lazy(() => import("./components/Gallery").then(module => ({ default: module.Gallery })));
+const SpecialVideo = lazy(() => import("./components/SpecialVideo").then(module => ({ default: module.SpecialVideo })));
+const StarryCanvas = lazy(() => import("./components/StarryCanvas").then(module => ({ default: module.StarryCanvas })));
+const LoveMeter = lazy(() => import("./components/LoveMeter").then(module => ({ default: module.LoveMeter })));
+const Quiz = lazy(() => import("./components/Quiz").then(module => ({ default: module.Quiz })));
+const Message = lazy(() => import("./components/Message").then(module => ({ default: module.Message })));
+const Future = lazy(() => import("./components/Future").then(module => ({ default: module.Future })));
+const Footer = lazy(() => import("./components/Footer").then(module => ({ default: module.Footer })));
 
 export default function App() {
   const audioRef = useRef<AudioPlayerRef>(null);
@@ -51,22 +52,24 @@ export default function App() {
       <div className="relative z-10">
         <Hero onStart={handleStart} heroConfig={config.hero} couple={config.couple} />
         <Counter startDate={config.startDate} />
-        <Timeline timeline={config.timeline} />
-        <Reasons reasons={config.reasons} />
-        <LoveLetters letters={config.letters} />
-        <PinkyPromises />
-        <LoveCoupons coupons={config.coupons} />
-        <DateRandomizer />
-        <DateGenerator />
-        <LoveJar />
-        <Gallery photos={config.photos} />
-        <SpecialVideo />
-        <StarryCanvas />
-        <LoveMeter />
-        <Quiz />
-        <Message message={config.message} />
-        <Future />
-        <Footer />
+        <Suspense fallback={<div className="h-24 flex items-center justify-center text-pink-500/50">Carregando...</div>}>
+          <Timeline timeline={config.timeline} />
+          <Reasons reasons={config.reasons} />
+          <LoveLetters letters={config.letters} />
+          <PinkyPromises />
+          <LoveCoupons coupons={config.coupons} />
+          <DateRandomizer />
+          <DateGenerator />
+          <LoveJar />
+          <Gallery photos={config.photos} />
+          <SpecialVideo />
+          <StarryCanvas />
+          <LoveMeter />
+          <Quiz />
+          <Message message={config.message} />
+          <Future />
+          <Footer />
+        </Suspense>
       </div>
       <AudioPlayer ref={audioRef} url={config.musicUrl} spotifyPlaylistId={config.spotifyPlaylistId} />
     </div>
