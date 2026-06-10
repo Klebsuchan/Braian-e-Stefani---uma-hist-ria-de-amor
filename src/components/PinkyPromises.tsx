@@ -6,7 +6,7 @@ const promises = [
   "Eu prometo tentar não roubar as cobertas nos dias frios (tentar muito).",
   "Eu prometo segurar sua mão quando tudo parecer assustador.",
   "Eu prometo rir das suas piadas ruins, mesmo as piores delas.",
-  "Eu prometo aprender suas músicas favoritas pra cantar junto com você no carro.",
+  "Eu prometo aprender suas músicas favoritas pra cantar junto com você na motinha elétrica.",
   "Eu prometo nunca dormir brigado, nem mesmo depois das maiores cismas de ciúmes.",
   "Eu prometo sempre dar aquele beijo de boa noite, não importa a distância.",
   "Eu prometo te amar nas suas melhores e nas suas piores versões."
