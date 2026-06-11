@@ -2,10 +2,30 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(), 
+      tailwindcss(),
+      ViteImageOptimizer({
+        jpeg: {
+          quality: 60,
+          mozjpeg: true,
+        },
+        jpg: {
+          quality: 60,
+          mozjpeg: true,
+        },
+        png: {
+          quality: 60,
+        },
+        webp: {
+          quality: 60,
+        },
+      })
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

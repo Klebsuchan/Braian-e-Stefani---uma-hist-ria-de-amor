@@ -26,6 +26,14 @@ export default function App() {
   const audioRef = useRef<AudioPlayerRef>(null);
   const [config, setConfig] = useState(CONFIG);
   const [error, setError] = useState<string | null>(null);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Defer initialization of heavy below-the-fold components
+    // to keep the initial Hero and Counter completely unblocked
+    const timer = setTimeout(() => setIsReady(true), 150);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleStart = () => {
     // Attempt to start audio
@@ -51,22 +59,27 @@ export default function App() {
       <div className="relative z-10">
         <Hero onStart={handleStart} heroConfig={config.hero} couple={config.couple} />
         <Counter startDate={config.startDate} />
-        <Timeline timeline={config.timeline} />
-        <Reasons reasons={config.reasons} />
-        <LoveLetters letters={config.letters} />
-        <PinkyPromises />
-        <LoveCoupons coupons={config.coupons} />
-        <DateRandomizer />
-        <DateGenerator />
-        <LoveJar />
-        <Gallery photos={config.photos} />
-        <SpecialVideo />
-        <StarryCanvas />
-        <LoveMeter />
-        <Quiz />
-        <Message message={config.message} />
-        <Future />
-        <Footer />
+        
+        {isReady && (
+          <>
+            <Timeline timeline={config.timeline} />
+            <Reasons reasons={config.reasons} />
+            <LoveLetters letters={config.letters} />
+            <PinkyPromises />
+            <LoveCoupons coupons={config.coupons} />
+            <DateRandomizer />
+            <DateGenerator />
+            <LoveJar />
+            <Gallery photos={config.photos} />
+            <SpecialVideo />
+            <StarryCanvas />
+            <LoveMeter />
+            <Quiz />
+            <Message message={config.message} />
+            <Future />
+            <Footer />
+          </>
+        )}
       </div>
       <AudioPlayer ref={audioRef} url={config.musicUrl} spotifyPlaylistId={config.spotifyPlaylistId} />
     </div>
